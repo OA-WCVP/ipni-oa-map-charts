@@ -46,8 +46,8 @@ oatrends_charts_year:=data/ipni-oatrend-year.png
 oastatus_charts_year:= data/ipni-oastatustrendpc.png
 oatrends_charts_publ:=data/ipni-oatrend-publ.png
 
-findability_all:= $(findability_level_1) $(findability_level_2) $(findability_level_2)
-oaratio_all:= $(oaratio_level_1) $(oaratio_level_2) $(oaratio_level_3) 
+findability_all:= findability_level_1 findability_level_2 findability_level_2
+oaratio_all:= oaratio_level_1 oaratio_level_2 oaratio_level_3
 
 all: $(findability_all) $(oaratio_all)
 
