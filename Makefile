@@ -1,9 +1,9 @@
 year_min = 2012
 year_max = 2021
 
-level1_geojson_url = 'https://github.com/tdwg/wgsrpd/blob/52da7828aba9d461dd133c27b3bd7a4407161f54/geojson/level1.geojson'
-level2_geojson_url = 'https://github.com/tdwg/wgsrpd/blob/52da7828aba9d461dd133c27b3bd7a4407161f54/geojson/level2.geojson'
-level3_geojson_url = 'https://github.com/tdwg/wgsrpd/blob/52da7828aba9d461dd133c27b3bd7a4407161f54/geojson/level3.geojson'
+level1_geojson_url = 'https://github.com/tdwg/wgsrpd/raw/52da7828aba9d461dd133c27b3bd7a4407161f54/geojson/level1.geojson'
+level2_geojson_url = 'https://github.com/tdwg/wgsrpd/raw/52da7828aba9d461dd133c27b3bd7a4407161f54/geojson/level2.geojson'
+level3_geojson_url = 'https://github.com/tdwg/wgsrpd/raw/52da7828aba9d461dd133c27b3bd7a4407161f54/geojson/level3.geojson'
 
 python_launch_cmd=python
 #python_launch_cmd=winpty python
