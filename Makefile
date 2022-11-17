@@ -39,7 +39,7 @@ downloads/level3.geojson:
 
 ###############################################################################
 # Map WCVP data: ration between open and closed access
-data/oaratio-wcvp-map-level-%.png: plotoageo.py data/ipniname-oastatus-wcvp-report-%.csv
+data/oaratio-wcvp-map-level-%.png: plotoageo.py data/ipniname-oastatus-wcvp-report-%.csv downloads/level%.geojson
 	$(python_launch_cmd) $^ $(limit_args) --tdwg_wgsrpd_level=$* --plot-maps $@
 # Shorthand:
 oaratio_level_1: data/oaratio-wcvp-map-level-1.png
@@ -51,7 +51,7 @@ oaratio_all: data/oaratio-wcvp-map-level-1.png data/oaratio-wcvp-map-level-2.png
 
 ###############################################################################
 # Map WCVP data: proportion of unfindable publications
-data/findability-wcvp-map-level-%.png: plotoageo.py data/ipniname-oastatus-wcvp-report-%.csv
+data/findability-wcvp-map-level-%.png: plotoageo.py data/ipniname-oastatus-wcvp-report-%.csv downloads/level%.geojson
 	$(python_launch_cmd) $^ $(limit_args) --tdwg_wgsrpd_level=$* --plot-maps data/oaratio-wcvp-map-level-$*.png data/findability-wcvp-map-level-$*.png
 # Shorthand:
 findability_level_1: data/findability-wcvp-map-level-1.png
