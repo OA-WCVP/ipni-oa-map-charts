@@ -1,6 +1,10 @@
 year_min = 2012
 year_max = 2021
 
+level1_geojson_url = 'https://github.com/tdwg/wgsrpd/blob/52da7828aba9d461dd133c27b3bd7a4407161f54/geojson/level1.geojson'
+level2_geojson_url = 'https://github.com/tdwg/wgsrpd/blob/52da7828aba9d461dd133c27b3bd7a4407161f54/geojson/level2.geojson'
+level3_geojson_url = 'https://github.com/tdwg/wgsrpd/blob/52da7828aba9d461dd133c27b3bd7a4407161f54/geojson/level3.geojson'
+
 python_launch_cmd=python
 #python_launch_cmd=winpty python
 
@@ -20,6 +24,18 @@ archived_analyses: downloads/ipni-oa-data.zip
 data/ipniname-oastatus-wcvp-report-%.csv: downloads/ipni-oa-data.zip
 	mkdir -p data
 	unzip -o $^ $@
+	
+downloads/level1.geojson:
+	mkdir -p downloads
+	wget -O $@ $(level1_geojson_url)
+	
+downloads/level2.geojson:
+	mkdir -p downloads
+	wget -O $@ $(level2_geojson_url)
+	
+downloads/level3.geojson:
+	mkdir -p downloads
+	wget -O $@ $(level3_geojson_url)
 
 ###############################################################################
 # Map WCVP data: ration between open and closed access
