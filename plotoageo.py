@@ -65,7 +65,7 @@ def main():
     print(df)
 
     # 2.6 Import the map of the world
-    world = geopandas.read_file(args.ipnifile_geojson)
+    world = geopandas.read_file(args.inputfile_geojson)
 
     column_renames = {area_name_column.capitalize():'LEVEL{}_NAM'.format(args.tdwg_wgsrpd_level)}
     df.rename(columns=column_renames,inplace=True)
