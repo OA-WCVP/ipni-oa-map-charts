@@ -36,7 +36,7 @@ oaratio_all: data/oaratio-wcvp-map-level-1.png data/oaratio-wcvp-map-level-2.png
 ###############################################################################
 # Map WCVP data: proportion of unfindable publications
 data/findability-wcvp-map-level-%.png: plotoageo.py data/ipniname-oastatus-wcvp-report-%.csv
-	$(python_launch_cmd) $^ $(limit_args) --tdwg_wgsrpd_level=$* --plot-maps --unfindable=True data/oaratio-wcvp-map-level-$*.png data/findability-wcvp-map-level-$*.png
+	$(python_launch_cmd) $^ $(limit_args) --tdwg_wgsrpd_level=$* --plot-maps data/oaratio-wcvp-map-level-$*.png data/findability-wcvp-map-level-$*.png
 # Shorthand:
 findability_level_1: data/findability-wcvp-map-level-1.png
 findability_level_2: data/findability-wcvp-map-level-2.png
