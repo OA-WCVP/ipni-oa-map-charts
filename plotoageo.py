@@ -16,6 +16,7 @@ def main():
     parser = argparse.ArgumentParser()
     
     parser.add_argument('inputfile')
+    parser.add_argument('inputfile_geojson')
     parser.add_argument('-l','--limit', type=int, default=None)
     parser.add_argument('--quiet', action='store_true')
     parser.add_argument("--tdwg_wgsrpd_level", default=2, type=int)
@@ -64,7 +65,7 @@ def main():
     print(df)
 
     # 2.6 Import the map of the world
-    world = geopandas.read_file("./downloads/level{}.geojson".format(args.tdwg_wgsrpd_level))
+    world = geopandas.read_file(args.ipnifile_geojson)
 
     column_renames = {area_name_column.capitalize():'LEVEL{}_NAM'.format(args.tdwg_wgsrpd_level)}
     df.rename(columns=column_renames,inplace=True)
