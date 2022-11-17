@@ -2,7 +2,7 @@ year_min = 2012
 year_max = 2021
 
 python_launch_cmd=python
-python_launch_cmd=winpty python
+#python_launch_cmd=winpty python
 
 date_formatted=$(shell date +%Y%m%d-%H%M%S)
 
