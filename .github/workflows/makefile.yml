@@ -36,7 +36,7 @@ jobs:
     - name: Release with built documents
       uses: softprops/action-gh-release@v1
       with:
-        files: archive/map-charts.zip
+        files: archive/ipni-oa-map-charts-data.zip
       env:
         GITHUB_TOKEN: ${{ secrets.PAT }}
           
