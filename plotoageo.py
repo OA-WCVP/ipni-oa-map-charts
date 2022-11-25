@@ -87,6 +87,7 @@ def main():
     plt.title("Ratio of open:closed access of {} IPNI nomenclatural acts ({}-{})".format(coverage,args.year_min,args.year_max))
     ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(False)
+    ax.legend(loc='lower left')
     fig.tight_layout(pad=0)
     plt.savefig(args.outputfile_oa, bbox_inches='tight',pad_inches = 0, dpi = 400)
 
@@ -96,6 +97,7 @@ def main():
     plt.title("Proportion of un-discoverable publications of {} IPNI nomenclatural acts ({}-{})".format(coverage,args.year_min,args.year_max))
     ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(False)
+    ax.legend(loc='lower left')
     fig.tight_layout(pad=0)
     plt.savefig(args.outputfile_unknown, bbox_inches='tight',pad_inches = 0, dpi = 400)
 
