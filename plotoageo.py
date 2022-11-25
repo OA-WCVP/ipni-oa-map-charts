@@ -83,7 +83,9 @@ def main():
         plt.title("Ratio Open/Closed access of all tax. nov. IPNI nomenclatural acts")
     else:
         plt.title("Ratio Open/Closedaccess of all IPNI nomenclatural acts")
-    plt.tight_layout()
+    ax.xaxis.set_visible(False)
+    ax.yaxis.set_visible(False)
+    fig.tight_layout(pad=0)
     plt.savefig(args.outputfile_oa)
 
     # 3.2 plotting the percentage of unfindable publications
@@ -93,7 +95,9 @@ def main():
         plt.title("Proportion of unfindable publications of tax. nov. IPNI nomenclatural acts")
     else:
         plt.title("Proportion of unfindable publications of all IPNI nomenclatural acts")
-    plt.tight_layout()
+    ax.xaxis.set_visible(False)
+    ax.yaxis.set_visible(False)
+    fig.tight_layout(pad=0)
     plt.savefig(args.outputfile_unknown)
 
 if __name__ == "__main__":
