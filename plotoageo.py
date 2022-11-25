@@ -86,7 +86,7 @@ def main():
     ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(False)
     fig.tight_layout(pad=0)
-    plt.savefig(args.outputfile_oa)
+    plt.savefig(args.outputfile_oa, bbox_inches='tight',pad_inches = 0, dpi = 400)
 
     # 3.2 plotting the percentage of unfindable publications
     fig, ax = plt.subplots(1, 1)
@@ -98,7 +98,7 @@ def main():
     ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(False)
     fig.tight_layout(pad=0)
-    plt.savefig(args.outputfile_unknown)
+    plt.savefig(args.outputfile_unknown, bbox_inches='tight',pad_inches = 0, dpi = 400)
 
 if __name__ == "__main__":
     main()
