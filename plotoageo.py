@@ -80,7 +80,7 @@ def main():
     
     # 3.1 plotting the ratio between open and closed access
     fig, ax = plt.subplots(1, 1)
-    world.plot(column='OA_ratio',ax=ax, legend=True, cmap='OrRd', scheme='quantiles').legend(loc='lower left')
+    world.plot(column='OA_ratio',ax=ax, legend=True, legend_kwds=dict(loc='lower left', bbox_to_anchor=(1, 1)), cmap='OrRd', scheme='quantiles')
     coverage = 'all'
     if args.tax_novs_only:
         coverage = 'tax. nov.'
@@ -92,7 +92,7 @@ def main():
 
     # 3.2 plotting the percentage of unfindable publications
     fig, ax = plt.subplots(1, 1)
-    world.plot(column='OA_unfind',ax=ax, legend=True, cmap='OrRd', scheme='quantiles').legend(loc='lower left')
+    world.plot(column='OA_unfind',ax=ax, legend=True, legend_kwds=dict(loc='lower left', bbox_to_anchor=(1, 1)), cmap='OrRd', scheme='quantiles')
     plt.title("Proportion of un-discoverable publications of {} IPNI nomenclatural acts ({}-{})".format(coverage,args.year_min,args.year_max))
     ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(False)
