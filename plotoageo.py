@@ -23,6 +23,8 @@ def main():
     parser.add_argument("--tax_novs_only", action='store_true')
     parser.add_argument('--plot-maps', action='store_true')
     parser.add_argument('-d','--delimiter', type=str, default='\t')
+    parser.add_argument('--year_min',default=2012)
+    parser.add_argument('--year_max',default=2021)
     parser.add_argument('outputfile_oa')
     parser.add_argument('outputfile_unknown')
 
@@ -79,10 +81,10 @@ def main():
     # 3.1 plotting the ratio between open and closed access
     fig, ax = plt.subplots(1, 1)
     world.plot(column='OA_ratio',ax=ax, legend=True, cmap='OrRd', scheme='quantiles')
+    coverage = 'all'
     if args.tax_novs_only:
-        plt.title("Ratio Open/Closed access of all tax. nov. IPNI nomenclatural acts")
-    else:
-        plt.title("Ratio Open/Closedaccess of all IPNI nomenclatural acts")
+        coverage = 'tax. nov.'
+    plt.title("Ratio of open:closed access of {} IPNI nomenclatural acts ({}-{})".format(coverage,args.year_min,args.year_max))
     ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(False)
     fig.tight_layout(pad=0)
@@ -91,10 +93,7 @@ def main():
     # 3.2 plotting the percentage of unfindable publications
     fig, ax = plt.subplots(1, 1)
     world.plot(column='OA_unfind',ax=ax, legend=True, cmap='OrRd', scheme='quantiles')
-    if args.tax_novs_only:
-        plt.title("Proportion of unfindable publications of tax. nov. IPNI nomenclatural acts")
-    else:
-        plt.title("Proportion of unfindable publications of all IPNI nomenclatural acts")
+    plt.title("Proportion of un-discoverable publications of {} IPNI nomenclatural acts ({}-{})".format(coverage,args.year_min,args.year_max))
     ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(False)
     fig.tight_layout(pad=0)
