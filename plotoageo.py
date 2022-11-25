@@ -80,24 +80,22 @@ def main():
     
     # 3.1 plotting the ratio between open and closed access
     fig, ax = plt.subplots(1, 1)
-    world.plot(column='OA_ratio',ax=ax, legend=True, cmap='OrRd', scheme='quantiles')
+    world.plot(column='OA_ratio',ax=ax, legend=True, cmap='OrRd', scheme='quantiles').legend(loc='lower left')
     coverage = 'all'
     if args.tax_novs_only:
         coverage = 'tax. nov.'
     plt.title("Ratio of open:closed access of {} IPNI nomenclatural acts ({}-{})".format(coverage,args.year_min,args.year_max))
     ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(False)
-    plt.legend(loc='lower left')
     fig.tight_layout(pad=0)
     plt.savefig(args.outputfile_oa, bbox_inches='tight',pad_inches = 0.1, dpi = 400)
 
     # 3.2 plotting the percentage of unfindable publications
     fig, ax = plt.subplots(1, 1)
-    world.plot(column='OA_unfind',ax=ax, legend=True, cmap='OrRd', scheme='quantiles')
+    world.plot(column='OA_unfind',ax=ax, legend=True, cmap='OrRd', scheme='quantiles').legend(loc='lower left')
     plt.title("Proportion of un-discoverable publications of {} IPNI nomenclatural acts ({}-{})".format(coverage,args.year_min,args.year_max))
     ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(False)
-    plt.legend(loc='lower left')
     fig.tight_layout(pad=0)
     plt.savefig(args.outputfile_unknown, bbox_inches='tight',pad_inches = 0.1, dpi = 400)
 
