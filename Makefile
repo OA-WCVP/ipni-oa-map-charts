@@ -59,6 +59,15 @@ findability_level_2: data/findability-wcvp-map-level-2.png
 findability_level_3: data/findability-wcvp-map-level-3.png
 findability_all: data/findability-wcvp-map-level-1.png data/findability-wcvp-map-level-2.png data/findability-wcvp-map-level-3.png
 
+# Map WCVP data: composites
+data/wcvp-map-composite-level-%.png: plotoageo.py data/ipniname-oastatus-wcvp-report-%.csv downloads/level%.geojson
+	$(python_launch_cmd) $^ $(limit_args) --tdwg_wgsrpd_level=$* --plot-maps --plot-composite --outputfile-composite=$@ data/oaratio-wcvp-map-level-$*.png data/findability-wcvp-map-level-$*.png
+# Shorthand:
+composite_level_1: data/wcvp-map-composite-level-1.png
+composite_level_2: data/wcvp-map-composite-level-2.png
+composite_level_3: data/wcvp-map-composite-level-3.png
+composite_all: data/wcvp-map-composite-level-1.png data/wcvp-map-composite-level-2.png data/wcvp-map-composite-level-3.png
+
 ###############################################################################
 
 oatrends_charts_year:=data/ipni-oatrend-year.png
@@ -66,13 +75,15 @@ oastatus_charts_year:= data/ipni-oastatustrendpc.png
 oatrends_charts_publ:=data/ipni-oatrend-publ.png
 
 findability_charts:= data/findability-wcvp-map-level-1.png data/findability-wcvp-map-level-2.png data/findability-wcvp-map-level-3.png
+composite_charts:=data/wcvp-map-composite-level-1.png data/wcvp-map-composite-level-2.png data/wcvp-map-composite-level-3.png 
+
 oa_charts: data/oaratio-wcvp-map-level-1.png data/oaratio-wcvp-map-level-2.png data/oaratio-wcvp-map-level-3.png
 
-all: $(findability_charts) $(oaratio_charts)
+all: $(findability_charts) $(oaratio_charts) $(composite_charts)
 
 data_archive_zip:=$(shell basename $(CURDIR))-data.zip
 
-archive: $(findability_charts) $(oaratio_charts)
+archive: $(findability_charts) $(oaratio_charts) $(composite_charts)
 	mkdir -p archive	
 	echo "Archived on $(date_formatted)" >> data/archive-info.txt
 	zip archive/$(data_archive_zip) data/archive-info.txt data/* -r

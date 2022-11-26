@@ -22,6 +22,8 @@ def main():
     parser.add_argument("--tdwg_wgsrpd_level", default=2, type=int)
     parser.add_argument("--tax_novs_only", action='store_true')
     parser.add_argument('--plot-maps', action='store_true')
+    parser.add_argument('--plot-composite', action='store_true')
+    parser.add_argument('--outputfile_composite', default=None)
     parser.add_argument('-d','--delimiter', type=str, default='\t')
     parser.add_argument('--year_min',default=2012)
     parser.add_argument('--year_max',default=2021)
@@ -98,6 +100,28 @@ def main():
     ax.yaxis.set_visible(False)
     fig.tight_layout(pad=0)
     plt.savefig(args.outputfile_unknown, bbox_inches='tight',pad_inches = 0.1, dpi = 400)
+
+    # 3.3 plot composite if required
+    if args.plot_composite:
+        fig, ax = plt.subplots(2, 1)
+        # Repeat of above - TODO extract to reusable method
+        world.plot(column='OA_unfind',ax=ax[0], legend=True, legend_kwds=dict(loc='lower left',fontsize='x-small'), cmap='OrRd', scheme='quantiles')
+        ax[0].set_title("Proportion of un-discoverable publications of {} IPNI nomenclatural acts ({}-{})".format(coverage,args.year_min,args.year_max))
+        ax[0].xaxis.set_visible(False)
+        ax[0].yaxis.set_visible(False)
+        
+        # Repeat of above - TODO extract to reusable method
+        world.plot(column='OA_ratio',ax=ax[1], legend=True, legend_kwds=dict(loc='lower left',fontsize='x-small'), cmap='OrRd', scheme='quantiles')
+        coverage = 'all'
+        if args.tax_novs_only:
+            coverage = 'tax. nov.'
+        ax[1].set_title("Ratio of open:closed access of {} IPNI nomenclatural acts ({}-{})".format(coverage,args.year_min,args.year_max))
+        ax[1].xaxis.set_visible(False)
+        ax[1].yaxis.set_visible(False)
+
+        fig.tight_layout(pad=0)
+        plt.savefig(args.outputfile_composite, bbox_inches='tight',pad_inches = 0.1, dpi = 400)
+
 
 if __name__ == "__main__":
     main()
