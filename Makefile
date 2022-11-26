@@ -61,7 +61,7 @@ findability_all: data/findability-wcvp-map-level-1.png data/findability-wcvp-map
 
 # Map WCVP data: composites
 data/wcvp-map-composite-level-%.png: plotoageo.py data/ipniname-oastatus-wcvp-report-%.csv downloads/level%.geojson
-	$(python_launch_cmd) $^ $(limit_args) --tdwg_wgsrpd_level=$* --plot-maps --plot-composite --outputfile-composite=$@ data/oaratio-wcvp-map-level-$*.png data/findability-wcvp-map-level-$*.png
+	$(python_launch_cmd) $^ $(limit_args) --tdwg_wgsrpd_level=$* --plot-maps --plot-composite --outputfile_composite=$@ data/oaratio-wcvp-map-level-$*.png data/findability-wcvp-map-level-$*.png
 # Shorthand:
 composite_level_1: data/wcvp-map-composite-level-1.png
 composite_level_2: data/wcvp-map-composite-level-2.png
