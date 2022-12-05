@@ -95,7 +95,7 @@ def main():
     # 3.2 plotting the percentage of unfindable publications
     fig, ax = plt.subplots(1, 1)
     world.plot(column='OA_unfind',ax=ax, legend=True, legend_kwds=dict(loc='lower left',fontsize='x-small'), cmap='OrRd', scheme='quantiles')
-    plt.title("Proportion of un-discoverable publications of {} IPNI nomenclatural acts ({}-{})".format(coverage,args.year_min,args.year_max))
+    plt.title("Proportion of {} IPNI nomenclatural acts ({}-{}) which are non-discoverable".format(coverage,args.year_min,args.year_max))
     ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(False)
     fig.tight_layout(pad=0)
@@ -106,7 +106,7 @@ def main():
         fig, ax = plt.subplots(2, 1)
         # Repeat of above - TODO extract to reusable method
         world.plot(column='OA_unfind',ax=ax[0], legend=True, legend_kwds=dict(loc='lower left',fontsize='x-small'), cmap='OrRd', scheme='quantiles')
-        ax[0].set_title("Proportion of un-discoverable publications of {} IPNI nomenclatural acts ({}-{})".format(coverage,args.year_min,args.year_max))
+        ax[0].set_title("Proportion of {} IPNI nomenclatural acts ({}-{}) which are non-discoverable".format(coverage,args.year_min,args.year_max))
         ax[0].xaxis.set_visible(False)
         ax[0].yaxis.set_visible(False)
         
